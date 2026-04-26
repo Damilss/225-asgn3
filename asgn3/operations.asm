@@ -3,58 +3,80 @@
 #Assignment 3 - Calculator
 
 
-.global addNums
-.global subNums
-.global multNums
-.global divNums
-.global andNums
-.global orNums
-.global xorNums
-.global lshiftNums
-.global unsignedRshiftNums
+.global addnums
+.global subnums
+.global multnums
+.global divnums
+.global andnums
+.global ornums
+.global xornums
+.global intlshiftnums
+.global unsignedintrshiftnums
 
 .text
 
-##============================= CODE =============================##
+##============================= CODE  =============================##
 
-addNums: 
-	#takes two arguments in a0 and a1, and returns the sum of 
-	#both in a0
+addnums: 
+	#takes two arguments in a0 as int and a1 as int, and returns the sum of 
+	#both in a0 as int
+	add a0, a0, a1
+	jalr zero, ra, 0
 	
-subNums:
-	#takes two arguments in a0 and a1, and returns the 
-	#differnce of both in a0
+subnums:
+	#takes two arguments in a0 as int and a1 as int, and returns the 
+	#difference of both in a0 as int
+	sub a0, a0, a1
+	jalr zero, ra, 0
 	
 
-multNums:
-	#takes two arguments in a0 and a1, and returns the product
-	#of both in a0
+multnums:
+	#takes two arguments in a0 as int and a1 as int, and returns the product
+	#of both in a0 as int
+	mul a0, a0, a1
+	jalr zero, ra, 0 
+	
+divnums:
+	#takes two arguents in a0 as int and a1 as int and returns the quotient of
+	#both and in a0 as int
+	div a0, a0, a1 
+	jalr zero, ra, 0 
 	
 
-divNums:
-	#takes two arguents in a0 and a1 and returns the quotient of
-	#both and in a0
-
-
-andNums:
-	#bitwise AND takes in two arguments a0 and a1, and performs the
+andnums:
+	#bitwise AND takes in two arguments a0 as int and a1 as int, and performs the
 	#bitwise operation AND on both, comparing the bitwise 
-	#represenation of both numbers, returning the product in a0  
-
-orNums: 
+	#represenation of both numbers, returning the product in a0 as int.	
+	and a0, a0, a1
+	jalr zero, ra, 0 
+	
+	
+ornums: 
 	#bitwise OR takes in two arguments in a0 and a1, and performs the
-	#bitiwse operation OR on both, comparing bitwise representation 
+	#bitwise operation OR on both, comparing bitwise representation 
 	#of both numbers, returning the product in a1
+	or a0, a0, a1
+	jalr zero, ra, 0
 
-xorNums:
-	#bitwise XOR takes in two arguments a0 and a1, and performse the 
+xornums:
+	#bitwise XOR takes in two arguments a0 and a1, and performs the 
 	#bitwise operation XOR on both, comparing the bitwise 
 	#representation of both numbers, returning the product in a0
+	xor a0, a0, a1
+	jalr zero, ra, 0
 
-lshiftNums:
-	#
+intlshiftnums:
+	#takes in two arguments as a0 as int and a1 as int, and shifts every bit over 1,
+	#returning the operation as a shifted value, represents value as int in returning 
+	#argument register as a0
+	sll a0, a0, a1
+    	jalr zero, ra, 0
 	
-
-unsignedRshiftNums:
-	#
+	
+unsignedintrshiftnums:
+	#takes in two arguments as a0 as int and a1 as int, and shifts every bit over 1
+	#returning the operations as a shifted value, represents value as int returning
+	#argument as a0
+	srl a0, a0, a1
+    	jalr zero, ra, 0
 

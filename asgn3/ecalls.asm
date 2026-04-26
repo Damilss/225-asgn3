@@ -2,51 +2,73 @@
 #Emilio Scott
  
  
-.global printString
-.global printInt
-.global printChar
-.global exitPRogram
-.global readChar
-.global readInt
+.global printstring
+.global printint
+.global printchar
+.global exit0
+.global readchar
+.global readint
+.global printdouble
+
+.data
+
+divbyzeroerror:
+	.asciz "\nError: divide by zero"
 
 .text
 
 ##============================= CODE =============================##
-printString: 
+printstring: 
 	#subroutine receives an .asciz as an argument in 
 	#argument register a0 and prints argument to i/o terminal
 	li a7, 4
 	ecall 
-	jalr 0, ra, 0
+	jalr zero, ra, 0
 	
-PrintInt: 
+printint: 
 	#subrountine recieves an byte int as an argument in 
 	#argument register a0 and prints the argument to i/o terminal
-	li a7, 5
+	li a7, 1
 	ecall
-	jalr 0, ra, 0
+	jalr zero, ra, 0
 	
-PrintChar:
+printchar:
 	#receives an .ascii char as an argument in 
 	#argument register a0 and prints the argument to i/o terminal
 	li a7, 11
 	ecall 
-	jalr 0, ra
+	jalr zero, ra, 0
 	
-exitProgram:
+exit0:
 	#recives no arguments and and exits the progrmam
 	li a7, 10
 	ecall
 
 
-readInt:
+readint:
 	#receives no arguemnts and returns the readInt from the i/o 
 	#terminal in a0
+	li a7, 5
+   	 ecall
+    	jalr zero, ra, 0
 
+readchar:
+	# receives no arguments and returns the the readchar form the i/o terminal in a0
+	readchar_loop:
+    	li a7, 12          
+    	ecall
 
-readChar:
+    	li t0, '\n'
+    	beq a0, t0, readchar_loop
 
-printDouble:
-	#recieves an 8 byte double from argument register a0 and prints
+    	jalr zero, ra, 0
+
+printdouble:
+	#recieves an 8 byte double from argument register fa0 and prints
 	# it to the i/o terminal
+	li a7, 3
+    	ecall
+    	jalr zero, ra, 0
+	
+
 	
