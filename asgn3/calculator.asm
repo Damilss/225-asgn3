@@ -11,11 +11,11 @@
 .data
 
 welcome: 
-	.asciz "Welcome to the Calulator Program.\n"
+	.asciz "Welcome to the Calculator Program.\n"
 operations:
 	.asciz "\nOperations - 1:add 2:subtract 3:multiply 4:divide 5:and 6:or 7:xor 8:lshift 9:rshift\n"
 numOfOperations: 
-	.asciz "\nNumber of operations peformed: "
+	.asciz "\nNumber of operations performed: "
 enterNum1: 
 	.asciz "\nEnter number: "
 enterNum2: 

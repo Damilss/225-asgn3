@@ -53,7 +53,7 @@ andnums:
 	
 ornums: 
 	#bitwise OR takes in two arguments in a0 and a1, and performs the
-	#bitiwse operation OR on both, comparing bitwise representation 
+	#bitwise operation OR on both, comparing bitwise representation 
 	#of both numbers, returning the product in a1
 	or a0, a0, a1
 	jalr zero, ra, 0
@@ -74,9 +74,9 @@ intlshiftnums:
 	
 	
 unsignedintrshiftnums:
-	#takes in two arugments as a0 as int and a1 as int, and shifts every bit over 1
-	#returnign the operations as a shifted valued, respresents value as int reutnring
-	#arugment as a0
+	#takes in two arguments as a0 as int and a1 as int, and shifts every bit over 1
+	#returning the operations as a shifted value, represents value as int returning
+	#argument as a0
 	srl a0, a0, a1
     	jalr zero, ra, 0
 
