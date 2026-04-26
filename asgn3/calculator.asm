@@ -52,8 +52,8 @@ main_loop:
     jal ra, printstring
     mv a0, s0
     jal ra, printint
-
-    la a0, enterNum1 	  	
+    la a0, enterNum1
+    jal ra, printstring
     jal ra, readint
     mv s1, a0			#first number
     la a0, enterNum2
@@ -99,7 +99,7 @@ main_loop:
     beq s3, t0, do_rshift
     
     la a0, invalidoperation	
-    jal, ra, printstring
+    jal ra, printstring
 
     b continue_prompt        # invalid choice: skip result, ask continue
 
@@ -182,4 +182,4 @@ doexit:
     jal ra, printint
     la a0, exiting
     jal ra, printstring
-    jal ra, exitprogram
+    jal ra, exit0

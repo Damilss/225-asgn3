@@ -25,7 +25,7 @@ addnums:
 	
 subnums:
 	#takes two arguments in a0 as int and a1 as int, and returns the 
-	#differnce of both in a0 as int
+	#difference of both in a0 as int
 	sub a0, a0, a1
 	jalr zero, ra, 0
 	
@@ -48,7 +48,7 @@ andnums:
 	#bitwise operation AND on both, comparing the bitwise 
 	#represenation of both numbers, returning the product in a0 as int.	
 	and a0, a0, a1
-	jalr zero, ra 0 
+	jalr zero, ra, 0 
 	
 	
 ornums: 

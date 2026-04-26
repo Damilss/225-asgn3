@@ -53,7 +53,7 @@ readint:
     	jalr zero, ra, 0
 
 readchar:
-	# receives no arguments and returns the the readchar form the i/o temrinal in a0
+	# receives no arguments and returns the the readchar form the i/o terminal in a0
 	readchar_loop:
     	li a7, 12          
     	ecall
