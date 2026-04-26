@@ -27,9 +27,9 @@ result:
 continue:
 	.asciz "\nContinue (y/n)?: "
 exiting: 
-	.asciz "Exiting"
+	.asciz "\nExiting"
 invalidoperation:
-	.asciz "Invalid Operations\n"	
+	.asciz "\nInvalid Operations\n"	
 ##============================ MAIN ============================##
 
 .text
@@ -53,9 +53,9 @@ main_loop:
     mv a0, s0
     jal ra, printint
 
-    la a0, enterNum1
-    jal ra, printstring
+    la a0, enterNum1 	  	
     jal ra, readint
+    mv s1, a0			#first number
     la a0, enterNum2
     jal ra, printstring
     jal ra, readint
@@ -99,7 +99,7 @@ main_loop:
     beq s3, t0, do_rshift
     
     la a0, invalidoperation	
-    jal, ra, printsring
+    jal, ra, printstring
 
     b continue_prompt        # invalid choice: skip result, ask continue
 
@@ -177,7 +177,9 @@ continue_prompt:
 
 doexit:
     la a0, numOfOperations
-    la a0, printstring
+    jal ra, printstring
+    mv a0, s0
+    jal ra, printint
     la a0, exiting
     jal ra, printstring
     jal ra, exitprogram

@@ -5,7 +5,7 @@
 .global printstring
 .global printint
 .global printchar
-.global exitprogram
+.global exit0
 .global readchar
 .global readint
 .global printdouble
@@ -39,7 +39,7 @@ printchar:
 	ecall 
 	jalr zero, ra, 0
 	
-exitprogram:
+exit0:
 	#recives no arguments and and exits the progrmam
 	li a7, 10
 	ecall
